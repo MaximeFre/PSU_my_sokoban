@@ -51,5 +51,5 @@ void check_lose(info_t *info)
             count++;
     }
     if (count == info->nb_x)
-        info->end = 0;
+        info->end = 2;
 }

@@ -37,5 +37,7 @@ int main(int ac, char const *av[])
     info = init_box(info);
     info = init_place(info);
     global_loop(info);
+    if (info->end == 2)
+        return (1);
     return (0);
 }
