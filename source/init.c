@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "../include/my.h"
 
-info_t *init_player(info_t *info)
+void init_player(info_t *info)
 {
     for (int i = 0; info->map[i]; i++) {
         for (int j = 0; info->map[i][j]; j++) {
@@ -19,7 +19,6 @@ info_t *init_player(info_t *info)
         }
     }
     info->end = 1;
-    return (info);
 }
 
 int count(char **map, char c)
@@ -36,7 +35,7 @@ int count(char **map, char c)
     return (count);
 }
 
-info_t *init_box(info_t *info)
+void init_box(info_t *info)
 {
     int nb = count(info->map, 'X');
     int a = 0;
@@ -55,10 +54,9 @@ info_t *init_box(info_t *info)
     }
     info->nb_x = nb;
     info->nbline = i;
-    return (info);
 }
 
-info_t *init_place(info_t *info)
+void init_place(info_t *info)
 {
     int nb = count(info->map, 'O');
     int a = 0;
@@ -77,5 +75,4 @@ info_t *init_place(info_t *info)
         info->nbcols[i] = j;
     }
     info->nb_o = nb;
-    return (info);
 }

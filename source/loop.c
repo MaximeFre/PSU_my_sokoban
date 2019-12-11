@@ -35,19 +35,21 @@ void events(info_t *info)
 
 void global_loop(info_t *info)
 {
-
-
     initscr();
     keypad(stdscr, TRUE);
     noecho();
     curs_set(FALSE);
     while (info->end == 1) {
-        for (int i = 0; info->map[i] != NULL; i++) {
-            mvprintw((LINES / 2) - (info->nbline / 2) + i, (COLS / 2) - (info->nbcols[0] / 2),info->map[i]);
+        if (LINES < info->nbline || COLS < info->nbcols[0])
+            mvprintw((LINES / 2) - 10, (COLS / 2),"resize the terminal");
+        else {
+            for (int i = 0; info->map[i] != NULL; i++) {
+                mvprintw((LINES / 2) - (info->nbline / 2) + i, (COLS / 2) - (info->nbcols[0] / 2),info->map[i]);
+            }
+            events(info);
+            check_win(info);
+            check_lose(info);
         }
-        events(info);
-        check_win(info);
-        check_lose(info);
         refresh();
     }
     endwin();

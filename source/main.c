@@ -9,6 +9,13 @@
 #include <stdlib.h>
 #include "../include/my.h"
 
+int error_handling(info_t *info)
+{
+    if (info->nb_o != info->nb_x)
+        return (84);
+    return (0);
+}
+
 void help()
 {
     my_putstr("USAGE\n");
@@ -33,9 +40,11 @@ int main(int ac, char const *av[])
     }
     buf = open_file(av[1]);
     info->map = str_to_arr(buf);
-    info = init_player(info);
-    info = init_box(info);
-    info = init_place(info);
+    init_player(info);
+    init_box(info);
+    init_place(info);
+    if (error_handling(info) == 84)
+        return (84);
     global_loop(info);
     if (info->end == 2)
         return (1);

@@ -30,13 +30,17 @@ int check_corner(info_t *info, int i)
     int x = info->box[i].x;
     int y = info->box[i].y;
 
-    if (map[y - 1][x] == '#' && map[y][x - 1] == '#')
+    if ((map[y - 1][x] == '#' || map[y - 1][x] == 'X') && (map[y][x - 1] == '#'
+    || map[y][x - 1] == 'X'))
         return (1);
-    if (map[y - 1][x] == '#' && map[y][x + 1] == '#')
+    if ((map[y - 1][x] == '#' || map[y - 1][x] == 'X') && (map[y][x + 1] == '#'
+    || map[y][x + 1] == 'X'))
         return (1);
-    if (map[y + 1][x] == '#' && map[y][x - 1] == '#')
+    if ((map[y + 1][x] == '#' || map[y + 1][x] == 'X') && (map[y][x - 1] == '#'
+    || map[y][x - 1] == 'X'))
         return (1);
-    if (map[y + 1][x] == '#' && map[y][x + 1] == '#')
+    if ((map[y + 1][x] == '#' || map[y + 1][x] == 'X') && (map[y][x + 1] == '#'
+    || map[y][x + 1] == 'X'))
         return (1);
     return (0);
 }

@@ -14,9 +14,9 @@
 char *open_file(char const *filepath);
 char **str_to_arr(char *file);
 void my_putstr(char const *str);
-info_t *init_player(info_t *info);
-info_t *init_box(info_t *info);
-info_t *init_place(info_t *info);
+void init_player(info_t *info);
+void init_box(info_t *info);
+void init_place(info_t *info);
 void global_loop(info_t *info);
 void move_up(info_t *info);
 void move_down(info_t *info);
