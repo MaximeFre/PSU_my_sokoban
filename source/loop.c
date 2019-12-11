@@ -52,5 +52,8 @@ void global_loop(info_t *info)
         }
         refresh();
     }
+    for (int i = 0; info->map[i] != NULL; i++)
+        mvprintw((LINES / 2) - (info->nbline / 2) + i, (COLS / 2) - (info->nbcols[0] / 2),info->map[i]);
+    refresh();
     endwin();
 }
