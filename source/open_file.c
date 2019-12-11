@@ -60,6 +60,8 @@ char *open_file(char const *filepath)
     struct stat buf;
     char *map;
 
+    if (fd == -1)
+        return("error");
     if (stat(filepath, &buf) == 0)
         size = buf.st_size;
     map = malloc(sizeof(char) * (size + 1));

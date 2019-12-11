@@ -28,6 +28,7 @@ typedef struct info_s {
     box_t *box;
     place_t *place;
     char** map;
+    char *buf;
     int nbline;
     int *nbcols;
     int nb_o;
