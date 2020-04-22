@@ -13,7 +13,7 @@
 void print_map(info_t *info)
 {
     if (LINES < info->nbline || COLS < info->nbcols[0])
-        mvprintw((LINES / 2) - 10, (COLS / 2),"resize the terminal");
+        mvprintw((LINES / 2) - 10, (COLS / 2), "resize the terminal");
     else {
         for (int i = 0; info->map[i] != NULL; i++) {
             mvprintw((LINES / 2) - (info->nbline / 2) + i, (COLS / 2)

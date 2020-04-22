@@ -5,7 +5,6 @@
 ** main sokoban
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "../include/my.h"
 
